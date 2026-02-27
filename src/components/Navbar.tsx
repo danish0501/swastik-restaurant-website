@@ -65,10 +65,16 @@ const Navbar = () => {
               <span>+91 98765 43210</span>
             </a>
             <MotionLink
-              to="/menu"
+              to="/#order-online"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               className="bg-gradient-gold text-primary-foreground px-8 py-2.5 rounded-full text-base font-semibold tracking-wide uppercase shadow-lg hover:shadow-gold transition-all duration-300 button-shine"
+              onClick={(e) => {
+                if (location.pathname === '/') {
+                  e.preventDefault();
+                  document.getElementById('order-online')?.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
             >
               Order Now
             </MotionLink>
@@ -109,8 +115,14 @@ const Navbar = () => {
                 </Link>
               ))}
               <MotionLink
-                to="/menu"
-                onClick={() => setIsOpen(false)}
+                to="/#order-online"
+                onClick={(e) => {
+                  setIsOpen(false);
+                  if (location.pathname === '/') {
+                    e.preventDefault();
+                    document.getElementById('order-online')?.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-gradient-gold text-primary-foreground px-5 py-3 rounded-full text-sm font-bold tracking-wide uppercase text-center mt-2 shadow-md button-shine"
               >

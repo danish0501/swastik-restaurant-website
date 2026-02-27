@@ -11,7 +11,7 @@ const categories = [
 
 const Categories = () => {
     return (
-        <section className="py-24 bg-background">
+        <section className="py-16 bg-background">
             <div className="container mx-auto px-4">
                 <ScrollReveal>
                     <div className="text-center mb-16">
@@ -33,13 +33,12 @@ const Categories = () => {
                                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                         loading="lazy"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
                                     <div className="absolute bottom-0 left-0 right-0 p-6">
-                                        <cat.icon className="w-8 h-8 text-primary mb-3" />
-                                        <h3 className="text-xl font-heading font-bold text-foreground mb-1">
+                                        <cat.icon className="w-10 h-10 text-primary-foreground mb-3" />
+                                        <h3 className="text-xl font-heading font-bold text-primary-foreground mb-1">
                                             {cat.label}
                                         </h3>
-                                        <p className="text-sm text-muted-foreground">{cat.desc}</p>
+                                        <p className="text-sm text-primary-foreground">{cat.desc}</p>
                                     </div>
                                 </div>
                             </Link>
