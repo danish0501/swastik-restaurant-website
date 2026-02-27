@@ -5,6 +5,8 @@ import ScrollReveal from "@/components/ScrollReveal";
 import OrderButtons from "@/components/OrderButtons";
 import DeliveryChecker from "@/components/DeliveryChecker";
 
+const MotionLink = motion(Link);
+
 const categories = [
   { icon: UtensilsCrossed, label: "Indian", desc: "Authentic curries, biryanis & thalis", image: "/images/indian.jpg" },
   { icon: ChefHat, label: "Chinese", desc: "Wok-tossed noodles & manchurian", image: "/images/chinese.jpg" },
@@ -48,18 +50,22 @@ const Index = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4 items-center justify-center mb-6"
           >
-            <Link
+            <MotionLink
               to="/menu"
-              className="bg-gradient-gold text-primary-foreground px-8 py-4 rounded-lg font-semibold tracking-wide uppercase hover:opacity-90 transition-opacity shadow-gold"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-gradient-gold text-primary-foreground px-10 py-4 rounded-full font-bold tracking-wide uppercase shadow-lg hover:shadow-gold transition-all duration-300 button-shine"
             >
               Explore Our Menu
-            </Link>
-            <Link
+            </MotionLink>
+            <MotionLink
               to="/contact"
-              className="border border-border text-foreground px-8 py-4 rounded-lg font-semibold tracking-wide uppercase hover:border-primary hover:text-primary transition-colors"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="border-2 border-primary text-primary px-10 py-4 rounded-full font-bold tracking-wide uppercase hover:bg-primary hover:text-white transition-all duration-300"
             >
               Reserve a Table
-            </Link>
+            </MotionLink>
           </motion.div>
 
           <motion.div

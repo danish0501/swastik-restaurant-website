@@ -11,12 +11,14 @@ const navItems = [
   { label: "Contact", path: "/contact" },
 ];
 
+const MotionLink = motion(Link);
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -30,37 +32,46 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`text-sm font-body tracking-wide uppercase transition-colors duration-300 hover:text-primary ${
-                  location.pathname === item.path
-                    ? "text-primary"
-                    : "text-muted-foreground"
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
+          <div className="hidden lg:flex items-center gap-6">
+            {navItems.map((item) => {
+              const isActive = location.pathname === item.path;
+              return (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className={`relative text-sm font-body font-bold tracking-widest uppercase transition-colors duration-300 hover:text-primary py-1 ${isActive ? "text-primary" : "text-muted-foreground"
+                    }`}
+                >
+                  {item.label}
+                  {isActive && (
+                    <motion.div
+                      layoutId="active-link"
+                      className="absolute -bottom-0.4 left-0 right-0 h-0.5 bg-primary rounded-full"
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                </Link>
+              );
+            })}
           </div>
 
           {/* CTA */}
           <div className="hidden lg:flex items-center gap-4">
             <a
               href="tel:+919876543210"
-              className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+              className="flex items-center gap-2 text-base font-semibold text-muted-foreground hover:text-primary transition-colors"
             >
-              <Phone className="w-4 h-4" />
+              <Phone className="w-5 h-5" />
               <span>+91 98765 43210</span>
             </a>
-            <Link
+            <MotionLink
               to="/menu"
-              className="bg-gradient-gold text-primary-foreground px-5 py-2.5 rounded-md text-sm font-semibold tracking-wide uppercase hover:opacity-90 transition-opacity"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-gradient-gold text-primary-foreground px-8 py-2.5 rounded-full text-base font-semibold tracking-wide uppercase shadow-lg hover:shadow-gold transition-all duration-300 button-shine"
             >
               Order Now
-            </Link>
+            </MotionLink>
           </div>
 
           {/* Mobile Toggle */}
@@ -89,22 +100,22 @@ const Navbar = () => {
                   key={item.path}
                   to={item.path}
                   onClick={() => setIsOpen(false)}
-                  className={`text-lg font-heading transition-colors ${
-                    location.pathname === item.path
-                      ? "text-primary"
-                      : "text-muted-foreground"
-                  }`}
+                  className={`text-lg font-heading transition-colors ${location.pathname === item.path
+                    ? "text-primary"
+                    : "text-muted-foreground"
+                    }`}
                 >
                   {item.label}
                 </Link>
               ))}
-              <Link
+              <MotionLink
                 to="/menu"
                 onClick={() => setIsOpen(false)}
-                className="bg-gradient-gold text-primary-foreground px-5 py-3 rounded-md text-sm font-semibold tracking-wide uppercase text-center mt-2"
+                whileTap={{ scale: 0.95 }}
+                className="bg-gradient-gold text-primary-foreground px-5 py-3 rounded-full text-sm font-bold tracking-wide uppercase text-center mt-2 shadow-md button-shine"
               >
                 Order Now
-              </Link>
+              </MotionLink>
             </div>
           </motion.div>
         )}

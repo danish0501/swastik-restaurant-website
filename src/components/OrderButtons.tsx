@@ -18,7 +18,7 @@ const OrderButtons = () => {
         href="https://www.zomato.com"
         target="_blank"
         rel="noopener noreferrer"
-        className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[hsl(0,72%,51%)] text-foreground px-6 py-3.5 rounded-lg font-semibold text-sm tracking-wide hover:opacity-90 transition-opacity"
+        className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[hsl(0,72%,51%)] text-white px-6 py-3.5 rounded-lg font-semibold text-sm tracking-wide hover:opacity-90 transition-opacity"
       >
         🍽️ Order on Zomato
       </motion.a>
@@ -30,7 +30,7 @@ const OrderButtons = () => {
         href="https://www.swiggy.com"
         target="_blank"
         rel="noopener noreferrer"
-        className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[hsl(24,100%,50%)] text-foreground px-6 py-3.5 rounded-lg font-semibold text-sm tracking-wide hover:opacity-90 transition-opacity"
+        className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[hsl(24,100%,50%)] text-white px-6 py-3.5 rounded-lg font-semibold text-sm tracking-wide hover:opacity-90 transition-opacity"
       >
         🛵 Order on Swiggy
       </motion.a>
@@ -40,7 +40,7 @@ const OrderButtons = () => {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={handleWhatsApp}
-        className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[hsl(142,70%,40%)] text-foreground px-6 py-3.5 rounded-lg font-semibold text-sm tracking-wide hover:opacity-90 transition-opacity"
+        className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[hsl(142,70%,40%)] text-white px-6 py-3.5 rounded-lg font-semibold text-sm tracking-wide hover:opacity-90 transition-opacity"
       >
         <MessageCircle className="w-4 h-4" />
         Direct Order via WhatsApp
