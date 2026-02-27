@@ -1,70 +1,72 @@
 import { motion } from "framer-motion";
-import { ChefHat, Utensils, Truck, Users, Clock, Award } from "lucide-react";
+import { ChefHat, Utensils, Truck, Users, Clock, Award, Sparkles } from "lucide-react";
 
 const features = [
     {
         icon: ChefHat,
         title: "Diverse Menu",
-        description: "Savor a wide range of Veg & Non-Veg delicacies including Indian, Chinese, Tandoor, and Fresh Sea Food.",
-        color: "bg-amber-500/10 text-amber-500",
+        description: "Explore a curated selection of Indian, Chinese & Sea Food delicacies crafted to perfection.",
+        color: "from-amber-500/20 text-amber-500",
     },
     {
         icon: Utensils,
-        title: "Quality Ingredients",
-        description: "We source only the freshest produce and premium spices to ensure every bite is perfect.",
-        color: "bg-orange-500/10 text-orange-500",
+        title: "Quality First",
+        description: "Only the finest local ingredients and hand-picked spices make it to our royal kitchen.",
+        color: "from-orange-500/20 text-orange-500",
     },
     {
         icon: Truck,
-        title: "Fastest Delivery",
-        description: "Get your favorite meals delivered hot and fresh across Kalamboli in record time.",
-        color: "bg-blue-500/10 text-blue-500",
+        title: "Local Hero",
+        description: "Express hot delivery across all Kalamboli sectors because we value your hunger.",
+        color: "from-blue-500/20 text-blue-500",
     },
     {
         icon: Users,
-        title: "Family First",
-        description: "A warm and welcoming environment designed for memorable family gatherings.",
-        color: "bg-purple-500/10 text-purple-500",
+        title: "Family Haven",
+        description: "A meticulously designed space to celebrate life's moments with your loved ones.",
+        color: "from-purple-500/20 text-purple-500",
     },
     {
         icon: Clock,
-        title: "Open Daily",
-        description: "Serving you deliciousness from lunch till late night, throughout the week.",
-        color: "bg-red-500/10 text-red-500",
+        title: "Golden Hours",
+        description: "Open from 11 AM to 11 PM daily. Your craving's best friend, all week long.",
+        color: "from-red-500/20 text-red-500",
     },
     {
         icon: Award,
-        title: "Expert Chefs",
-        description: "Our culinary experts bring years of experience to your plate with every dish.",
-        color: "bg-yellow-500/10 text-yellow-500",
+        title: "Maître d' Style",
+        description: "Our staff is trained to provide a royal hospitality experience that feels like home.",
+        color: "from-yellow-500/20 text-yellow-500",
     },
 ];
 
 const Features = () => {
     return (
-        <section className="py-16 bg-secondary/30 relative overflow-hidden">
+        <section className="py-24 bg-secondary/20 relative overflow-hidden">
+            {/* Immersive Background Blur */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
+
             <div className="container mx-auto px-4 relative z-10">
-                <div className="text-center mb-16">
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-primary font-body text-sm tracking-[0.3em] uppercase mb-4"
+                <div className="text-center mb-24">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.3em] mb-6 shadow-inner"
                     >
-                        The Swastik Advantage
-                    </motion.p>
+                        <Sparkles className="w-3 h-3" />
+                        The Swastik Edge
+                    </motion.div>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-5xl font-heading font-bold text-gradient-gold"
+                        className="text-5xl md:text-7xl font-heading font-bold text-foreground leading-tight"
                     >
-                        Why Dine With Us?
+                        Why We Are <br />
+                        <span className="text-gradient-gold drop-shadow-sm">Your Best Choice</span>
                     </motion.h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
                     {features.map((feature, index) => (
                         <motion.div
                             key={index}
@@ -72,24 +74,32 @@ const Features = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            whileHover={{ y: -10 }}
-                            className="bg-background p-8 rounded-3xl border border-primary/5 shadow-xl hover:shadow-primary/10 transition-all duration-300"
+                            whileHover={{ y: -15, scale: 1.02 }}
+                            className="group relative h-full bg-white p-10 rounded-[2.5rem] border border-border/50 shadow-[0_15px_40px_-15px_rgba(0,0,0,0.05)] hover:shadow-gold/10 transition-all duration-500 overflow-hidden"
                         >
-                            <div className={`w-16 h-16 rounded-2xl ${feature.color} flex items-center justify-center mb-6`}>
-                                <feature.icon className="w-8 h-8" />
+                            {/* Card Background Decoration */}
+                            <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-bl-[100px] -translate-y-8 translate-x-8`} />
+
+                            <div className="relative z-10">
+                                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-8 group-hover:rotate-6 transition-transform duration-500 shadow-inner overflow-hidden`}>
+                                    <feature.icon className="w-7 h-7" />
+                                </div>
+                                <h3 className="text-2xl font-heading font-bold mb-4 tracking-tight group-hover:text-primary transition-colors">
+                                    {feature.title}
+                                </h3>
+                                <p className="text-muted-foreground font-body leading-relaxed text-sm">
+                                    {feature.description}
+                                </p>
                             </div>
-                            <h3 className="text-xl font-heading font-bold mb-4">{feature.title}</h3>
-                            <p className="text-muted-foreground font-body leading-relaxed">
-                                {feature.description}
-                            </p>
+
+                            {/* Decorative Corner Icon */}
+                            <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-10 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                                <feature.icon className="w-12 h-12" />
+                            </div>
                         </motion.div>
                     ))}
                 </div>
             </div>
-
-            {/* Decorative Elements */}
-            <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
         </section>
     );
 };
