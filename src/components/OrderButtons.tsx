@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { MessageCircle, ExternalLink, ShoppingBag } from "lucide-react";
+import { MessageCircle, ExternalLink } from "lucide-react";
 
 interface PlatformCardProps {
   name: string;
@@ -11,26 +12,66 @@ interface PlatformCardProps {
 }
 
 const PlatformCard = ({ name, url, onClick, color, icon, description }: PlatformCardProps) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   const content = (
     <motion.div
       whileHover={{ y: -5 }}
       whileTap={{ scale: 0.98 }}
-      className="relative group cursor-pointer"
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
+      className="relative cursor-pointer"
       onClick={onClick}
     >
-      <div className={`absolute inset-0 rounded-2xl opacity-20 group-hover:opacity-30 transition-opacity bg-[${color}]`}
-        style={{ backgroundColor: color }} />
-      <div className="relative p-6 rounded-2xl border border-white/10 bg-card/50 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-300">
+      <div
+        className="absolute inset-0 rounded-2xl transition-opacity duration-300"
+        style={{
+          backgroundColor: color,
+          opacity: isHovered ? 0.30 : 0.15,
+        }}
+      />
+
+      <div
+        className="relative p-6 rounded-2xl border backdrop-blur-sm shadow-xl transition-all duration-300"
+        style={{
+          backgroundColor: "hsl(var(--card) / 0.5)",
+          borderColor: isHovered ? color : "rgba(255,255,255,0.10)",
+          boxShadow: isHovered
+            ? `0 20px 40px -12px ${color}55, 0 8px 16px -8px ${color}33`
+            : "0 4px 24px 0 rgba(0,0,0,0.10)",
+        }}
+      >
         <div className="flex items-start justify-between mb-4">
-          <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl shadow-lg"
-            style={{ backgroundColor: color }}>
-            {typeof icon === 'string' ? icon : icon}
+          <div
+            className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl shadow-lg transition-transform duration-300"
+            style={{
+              backgroundColor: color,
+              transform: isHovered ? "scale(1.1) rotate(-4deg)" : "scale(1) rotate(0deg)",
+            }}
+          >
+            {icon}
           </div>
-          <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-white transition-colors" />
+          <ExternalLink
+            className="w-4 h-4 transition-colors duration-300"
+            style={{ color: isHovered ? "#ffffff" : "hsl(var(--muted-foreground))" }}
+          />
         </div>
-        <h3 className="text-xl font-heading font-bold mb-1 text-black">{name}</h3>
+
+        <h3
+          className="text-xl font-heading font-bold mb-1 transition-colors duration-300"
+          style={{ color: isHovered ? color : "hsl(var(--foreground))" }}
+        >
+          {name}
+        </h3>
         <p className="text-sm text-foreground mb-4 line-clamp-1">{description}</p>
-        <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-white group-hover:gap-3 transition-all">
+
+        <div
+          className="flex items-center text-sm font-bold uppercase tracking-widest transition-all duration-300"
+          style={{
+            color: isHovered ? color : "hsl(var(--muted-foreground))",
+            gap: isHovered ? "12px" : "8px",
+          }}
+        >
           Order Now <span className="text-lg">→</span>
         </div>
       </div>

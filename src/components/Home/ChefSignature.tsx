@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import ScrollReveal from "@/components/ScrollReveal";
-import { CheckCircle2, Star, Zap, Coffee, Quote } from "lucide-react";
+import { CheckCircle2, Star, Zap, Coffee, Quote, Sparkles } from "lucide-react";
 
 const stats = [
     { icon: Star, label: "Customer Rating", value: "4.8/5" },
@@ -17,7 +17,7 @@ const highlights = [
 
 const ChefSignature = () => {
     return (
-        <section className="py-24 relative bg-card overflow-hidden">
+        <section className="py-16 relative bg-card overflow-hidden">
             {/* Background Accents */}
             <div className="absolute top-1/2 left-0 -translate-y-1/2 w-64 h-64 bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
 
@@ -28,8 +28,7 @@ const ChefSignature = () => {
                         <ScrollReveal>
                             <div className="relative group">
                                 {/* Decorative Ring */}
-                                <div className="absolute -inset-6 border border-primary/10 rounded-[3rem] group-hover:scale-105 transition-transform duration-700" />
-                                <div className="absolute -inset-10 border border-primary/5 rounded-[3.5rem] group-hover:scale-110 transition-transform duration-1000 delay-100" />
+                                <div className="absolute -inset-6 border border-primary/50 rounded-[3rem] group-hover:scale-105 transition-transform duration-700" />
 
                                 <div className="relative aspect-square rounded-[2.5rem] overflow-hidden shadow-2xl">
                                     <img
@@ -53,7 +52,7 @@ const ChefSignature = () => {
                             </div>
                         </ScrollReveal>
 
-                        {/* Floating Stats - Glassmorphism */}
+                        {/* Floating Stats */}
                         <motion.div
                             initial={{ opacity: 0, x: 20 }}
                             whileInView={{ opacity: 1, x: 0 }}
@@ -77,11 +76,19 @@ const ChefSignature = () => {
                     {/* Content Side */}
                     <div className="w-full lg:w-1/2">
                         <ScrollReveal delay={0.2}>
-                            <motion.span
-                                className="text-primary font-bold text-xs tracking-[0.4em] uppercase mb-6 block"
+                            <motion.div
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                className="inline-flex items-center gap-2.5 mb-6 w-fit cursor-default"
                             >
-                                Epicurean Journey
-                            </motion.span>
+                                <div
+                                    className="flex items-center gap-3 bg-primary border border-primary/20 backdrop-blur-sm rounded-full px-6 py-3 text-base text-white font-semibold tracking-wide"
+                                >
+                                    <Sparkles className="w-4 h-4 text-white shrink-0" />
+                                    <span>Epicurean Journey</span>
+                                    <span className="w-2 h-2 rounded-full bg-white/80 animate-pulse shrink-0" />
+                                </div>
+                            </motion.div>
                             <h2 className="text-5xl md:text-6xl font-heading font-bold text-foreground mb-10 leading-[1.1]">
                                 Authenticity in <br />
                                 <span className="text-gradient-gold">Every Single Bite</span>

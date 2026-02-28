@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Star, Truck, MousePointer2 } from "lucide-react";
+import { Star, Truck } from "lucide-react";
 
 const MotionLink = motion(Link);
 
 const Hero = () => {
     return (
-        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+        <section className="relative min-h-[90vh] py-16 flex items-center justify-center overflow-hidden">
             {/* Immersive Background */}
             <div
                 className="absolute inset-0 bg-cover bg-center scale-105 animate-subtle-zoom"
@@ -53,13 +53,13 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.8 }}
-                    className="flex flex-col sm:flex-row gap-6 items-center justify-center mb-16"
+                    className="flex flex-col sm:flex-row gap-6 items-center justify-center mb-6"
                 >
                     <MotionLink
                         to="/menu"
                         whileHover={{ scale: 1.05, y: -2 }}
                         whileTap={{ scale: 0.98 }}
-                        className="group relative bg-gradient-gold text-white px-12 py-5 rounded-full font-bold tracking-widest uppercase shadow-2xl hover:shadow-gold/40 transition-all duration-500 overflow-hidden"
+                        className="group relative bg-gradient-gold text-white px-12 py-4 rounded-full font-bold tracking-widest uppercase shadow-2xl hover:shadow-gold/40 transition-all duration-500 overflow-hidden"
                     >
                         <span className="relative z-10">Explore Our Menu</span>
                         <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
@@ -70,7 +70,7 @@ const Hero = () => {
                         to="/contact"
                         whileHover={{ scale: 1.05, y: -2 }}
                         whileTap={{ scale: 0.98 }}
-                        className="group bg-white/5 backdrop-blur-xl border-2 border-white/20 text-white px-12 py-5 rounded-full font-bold tracking-widest uppercase hover:bg-white hover:text-charcoal hover:border-white transition-all duration-500 shadow-xl"
+                        className="group bg-white/5 backdrop-blur-xl border-2 border-white/20 text-white px-12 py-4 rounded-full font-bold tracking-widest uppercase hover:bg-gradient-gold hover:text-white hover:border-gradient-gold transition-all duration-500 shadow-xl"
                     >
                         Reserve Table
                     </MotionLink>
@@ -88,23 +88,6 @@ const Hero = () => {
                     </div>
                 </motion.div>
             </div>
-
-            {/* Scroll Indicator */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.5 }}
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-3 opacity-50 hover:opacity-100 transition-opacity"
-            >
-                <div className="w-[30px] h-[50px] rounded-full border-2 border-white/30 p-1 flex justify-center">
-                    <motion.div
-                        animate={{ y: [0, 20, 0] }}
-                        transition={{ repeat: Infinity, duration: 1.5 }}
-                        className="w-1.5 h-1.5 rounded-full bg-primary"
-                    />
-                </div>
-                <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/50">Scroll to Explore</span>
-            </motion.div>
         </section>
     );
 };

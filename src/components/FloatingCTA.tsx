@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ShoppingBag, ArrowRight } from "lucide-react";
+import { ShoppingBag } from "lucide-react";
 
 const FloatingCTA = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -51,11 +51,6 @@ const FloatingCTA = () => {
 
                         {/* Animated Glow */}
                         <div className="absolute -inset-full bg-gradient-to-r from-transparent via-white/5 to-transparent rotate-45 animate-button-shine pointer-events-none" />
-
-                        {/* Hover reveal icon */}
-                        <div className="absolute top-1/2 -left-4 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:left-2 transition-all">
-                            <ArrowRight className="w-3 h-3 text-primary" />
-                        </div>
                     </motion.button>
 
                     {/* Outer Ambient Glow */}

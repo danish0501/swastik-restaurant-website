@@ -42,27 +42,33 @@ const features = [
 
 const Features = () => {
     return (
-        <section className="py-24 bg-secondary/20 relative overflow-hidden">
+        <section className="py-16 bg-secondary/20 relative overflow-hidden">
             {/* Immersive Background Blur */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
 
             <div className="container mx-auto px-4 relative z-10">
-                <div className="text-center mb-24">
+                <div className="text-center mb-16">
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.3em] mb-6 shadow-inner"
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        className="inline-flex items-center gap-2.5 mb-6 w-fit cursor-default"
                     >
-                        <Sparkles className="w-3 h-3" />
-                        The Swastik Edge
+                        <div
+                            className="flex items-center gap-3 bg-primary border border-primary/20 backdrop-blur-sm rounded-full px-6 py-3 text-base text-white font-semibold tracking-wide"
+                        >
+                            <Sparkles className="w-4 h-4 text-white shrink-0" />
+                            <span> The Swastik Edge</span>
+                            <span className="w-2 h-2 rounded-full bg-white/80 animate-pulse shrink-0" />
+                        </div>
                     </motion.div>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        className="text-5xl md:text-7xl font-heading font-bold text-foreground leading-tight"
+                        className="text-5xl md:text-6xl font-heading font-bold text-foreground leading-tight"
                     >
                         Why We Are <br />
                         <span className="text-gradient-gold drop-shadow-sm">Your Best Choice</span>
+                        <div className="h-1.5 w-24 bg-gradient-gold mx-auto mt-6 rounded-full" />
                     </motion.h2>
                 </div>
 
