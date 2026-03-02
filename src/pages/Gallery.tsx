@@ -3,6 +3,7 @@ import GalleryHero from "@/components/Gallery/GalleryHero";
 import GalleryGrid from "@/components/Gallery/GalleryGrid";
 import GalleryLightbox from "@/components/Gallery/GalleryLightbox";
 import { galleryImages } from "@/components/Gallery/galleryData";
+import OrderOnline from "@/components/OrderOnline";
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -35,6 +36,8 @@ const Gallery = () => {
         onNext={handleNext}
         onPrev={handlePrev}
       />
+
+      <OrderOnline />
     </main>
   );
 };

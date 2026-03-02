@@ -12,6 +12,7 @@ import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import FloatingCTA from "@/components/FloatingCTA";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Navbar />
         <Routes>
           <Route path="/" element={<Index />} />
