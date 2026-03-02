@@ -12,7 +12,7 @@ const contactSchema = z.object({
 });
 
 const ContactForm = () => {
-    
+
     const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
     const [errors, setErrors] = useState<Record<string, string>>({});
     const [isSubmitting, setIsSubmitting] = useState(false);

@@ -29,21 +29,21 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5 }}
-                        className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-8"
+                        className="inline-flex items-center gap-3 px-6 max-[376px]:px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-8"
                     >
                         <Star className="w-4 h-4 text-primary fill-primary animate-spin-slow" />
-                        <span className="text-primary font-body text-xs tracking-[0.4em] uppercase font-bold">
+                        <span className="text-primary font-body text-xs tracking-[0.4em] max-[376px]:tracking-[0.2em] uppercase font-bold">
                             EST. 2010 • Kalamboli
                         </span>
                         <Star className="w-4 h-4 text-primary fill-primary animate-spin-slow" />
                     </motion.div>
 
-                    <h1 className="text-6xl md:text-8xl lg:text-9xl font-heading font-bold text-white mb-8 leading-[1.1] tracking-tight">
+                    <h1 className="text-6xl md:text-8xl lg:text-9xl max-[376px]:text-5xl max-[321px]:text-4xl font-heading font-bold text-white mb-8 leading-[1.1] tracking-tight">
                         Authentic <br />
                         <span className="text-gradient-gold drop-shadow-2xl">Family Flavors</span>
                     </h1>
 
-                    <p className="text-lg md:text-2xl text-warm-white-dim max-w-3xl mx-auto mb-12 font-body leading-relaxed">
+                    <p className="text-lg md:text-2xl max-[376px]:text-lg max-[321px]:text-sm text-warm-white-dim max-w-3xl mx-auto mb-12 font-body leading-relaxed">
                         Indulge in a symphony of spices where every dish tells a story of tradition.
                         Experience Kalamboli's finest Indian & Sea Food.
                     </p>
@@ -82,8 +82,8 @@ const Hero = () => {
                     transition={{ delay: 1.2 }}
                     className="flex flex-col items-center gap-4"
                 >
-                    <div className="flex items-center gap-3 bg-primary/10 border border-primary/20 backdrop-blur-sm rounded-2xl px-8 py-3 text-sm text-primary font-bold tracking-wide">
-                        <Truck className="w-5 h-5 animate-bounce" />
+                    <div className="flex items-center gap-3 bg-primary/10 border border-primary/20 backdrop-blur-sm rounded-2xl px-8 max-[426px]:px-4 py-3 text-sm max-[376px]:text-xs text-primary font-bold tracking-wide">
+                        <Truck className="w-5 max-[376px]:w-4 h-5 max-[376px]:h-4 animate-bounce" />
                         Free Home Delivery In All Kalamboli Sectors!
                     </div>
                 </motion.div>
