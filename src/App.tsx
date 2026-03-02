@@ -11,6 +11,7 @@ import MenuPage from "./pages/MenuPage";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import FloatingCTA from "@/components/FloatingCTA";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
+        <FloatingCTA />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

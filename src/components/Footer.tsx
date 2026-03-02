@@ -175,17 +175,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-
-      {/* Scroll to Top Mockup - Just Visual */}
-      <motion.div
-        className="absolute bottom-8 right-8 hidden lg:block"
-        animate={{ y: [0, -10, 0] }}
-        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <div className="w-12 h-12 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center text-primary cursor-pointer hover:bg-primary hover:text-white transition-all">
-          <ExternalLink className="w-5 h-5" />
-        </div>
-      </motion.div>
     </footer>
   );
 };
